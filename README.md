@@ -3,6 +3,8 @@ Pytorch implementation of the paper Colorful Image Colorization
 https://arxiv.org/abs/1603.08511
 # Results
 The results of this implementation:
+## good
+![Optional Text](good.jpg)
 
 # Prerequisites
 * pytorch 0.4.0
