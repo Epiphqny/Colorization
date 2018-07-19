@@ -6,6 +6,10 @@ The results of this implementation:
 ## good
 ![Optional Text](good.jpg)
 
+## bad
+![Optional Text](bad.png)
+
+
 # Prerequisites
 * pytorch 0.4.0
 * python 3.5
