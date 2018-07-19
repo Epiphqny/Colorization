@@ -12,6 +12,6 @@ The results of this implementation:
 # Getting Started
 ## Train
 * set the datafolder to your own dataset
-* bash python train_imagenet.py
+* python train_imagenet.py
 
 
