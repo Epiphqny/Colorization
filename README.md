@@ -1,4 +1,5 @@
 # Colorful Image Colorization
+图像上色论文实现
 Pytorch implementation of the paper Colorful Image Colorization
 https://arxiv.org/abs/1603.08511
 # Results
