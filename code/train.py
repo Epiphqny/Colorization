@@ -48,27 +48,20 @@ def main(args):
                 # Set mini-batch dataset
                 images = images.unsqueeze(1).float().cuda()
                 img_ab = img_ab.float()
-                #print('img_ab',img_ab.shape)
                 encode,max_encode=encode_layer.forward(img_ab)
-                #print('max_encode',max_encode.shape)
                 targets=torch.Tensor(max_encode).long().cuda()
-                #print('targets',targets.size())
-                print('set_tar',set(targets[0].cpu().data.numpy().flatten()))
                 boost=torch.Tensor(boost_layer.forward(encode)).float().cuda()
                 mask=torch.Tensor(nongray_mask.forward(img_ab)).float().cuda()
                 boost_nongray=boost*mask
                 outputs = model(images)#.log()
                 output=outputs[0].cpu().data.numpy()
-                #print('outputs',outputs.size())
                 out_max=np.argmax(output,axis=0)
-                #print('out_max',out_max)
+
                 print('set',set(out_max.flatten()))
                 loss = (criterion(outputs,targets)*(boost_nongray.squeeze(1))).mean()
                 #loss=criterion(outputs,targets)
-                #print('loss',loss.size())
-                #print('boost',boost_nongray.squeeze(1).size())
                 #multi=loss*boost_nongray.squeeze(1)
-                #print('mult',multi.size())
+
                 model.zero_grad()
                 
                 loss.backward()
